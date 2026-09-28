@@ -75,6 +75,12 @@ const predictHousePrice = async (req, res) => {
 
     const responseData = await mlResponse.json().catch(() => ({}));
 
+    console.error('ML API Debug:', {
+      ML_API_URL,
+      status: mlResponse.status,
+      responseData,
+    });
+
     if (!mlResponse.ok) {
       return res.status(mlResponse.status || 502).json({
         message: 'Prediction service returned an error',
