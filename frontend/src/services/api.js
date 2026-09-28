@@ -5,7 +5,7 @@
 
 // Configurable API Base URL via Vite environment variables with fallback
 export const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+  import.meta.env.VITE_API_BASE_URL ||  "https://house-price-backend-b5mx.onrender.com";
 
 // Standard HTTP Headers helper
 export const getDefaultHeaders = () => {
