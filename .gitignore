@@ -1,0 +1,24 @@
+# Node & Dependencies
+node_modules/
+dist/
+
+# Environment Variables & Secrets
+.env
+.env.*
+*.env
+backend/.env
+frontend/.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# VS Code
+.vscode/
+
+# ML model files
+*.pkl
+
+# Old Streamlit version
+streamlit-app/
