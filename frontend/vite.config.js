@@ -3,5 +3,8 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react()],
+  preview: {
+    allowedHosts: ['house-price-frontend-r4ms.onrender.com'],
+  },
 })
