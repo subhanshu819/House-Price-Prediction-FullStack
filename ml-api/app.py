@@ -37,7 +37,8 @@ model = None
 def resolve_model_path() -> Path:
     """
     Safely locates the Random Forest model file across candidate paths.
-    Prioritizes ../models/random_forest_model.pkl as specified, with fallbacks.
+    Prioritizes ml-api/models/random_forest_model_50.pkl as the primary model,
+    with fallbacks to the original filename and sibling directories.
     """
     env_path = os.getenv("MODEL_PATH")
     if env_path:
@@ -48,10 +49,15 @@ def resolve_model_path() -> Path:
             return (BASE_DIR / env_p).resolve()
 
     candidate_paths = [
-        BASE_DIR / ".." / "models" / "random_forest_model.pkl",
-        Path("../models/random_forest_model.pkl"),
+        # Primary: ml-api/models/random_forest_model_50.pkl
+        BASE_DIR / "models" / "random_forest_model_50.pkl",
+        # Fallbacks for the _50 variant in other locations
+        BASE_DIR / ".." / "models" / "random_forest_model_50.pkl",
+        BASE_DIR.parent / "models" / "random_forest_model_50.pkl",
+        BASE_DIR.parent / "streamlit-app" / "random_forest_model_50.pkl",
+        # Legacy fallbacks (original filename)
         BASE_DIR / "models" / "random_forest_model.pkl",
-        Path("models/random_forest_model.pkl"),
+        BASE_DIR / ".." / "models" / "random_forest_model.pkl",
         BASE_DIR.parent / "models" / "random_forest_model.pkl",
         BASE_DIR.parent / "streamlit-app" / "random_forest_model.pkl",
     ]
@@ -64,8 +70,8 @@ def resolve_model_path() -> Path:
         except Exception:
             continue
 
-    # Default to the requested path
-    return (BASE_DIR / ".." / "models" / "random_forest_model.pkl").resolve()
+    # Default to the primary path
+    return (BASE_DIR / "models" / "random_forest_model_50.pkl").resolve()
 
 
 def load_model():
