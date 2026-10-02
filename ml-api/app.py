@@ -157,6 +157,11 @@ def health_check():
         "status": "healthy" if is_loaded else "degraded",
         "model_loaded": is_loaded,
     }
+from fastapi import Response
+
+@app.head("/health")
+def health_head():
+    return Response(status_code=200)
 
 
 @app.post("/predict", response_model=PredictionResponse)
