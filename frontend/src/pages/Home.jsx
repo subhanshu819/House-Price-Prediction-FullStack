@@ -1,4 +1,6 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext, { isJwtValid } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -84,6 +86,10 @@ const STEPS = [
 ];
 
 export default function Home() {
+  const auth = useContext(AuthContext);
+  const token = typeof localStorage !== "undefined" ? localStorage.getItem("token") : null;
+  const isLoggedIn = Boolean(auth?.isAuthenticated || isJwtValid(token));
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col overflow-x-hidden">
       {/* Ambient top glow */}
@@ -308,7 +314,9 @@ export default function Home() {
                   </span>
                 </h2>
                 <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-xl mx-auto">
-                  Run your first AI valuation today — completely free, no sign-up required.
+                  {isLoggedIn
+                    ? "Run your next AI valuation today — completely free."
+                    : "Run your first AI valuation today — completely free, no sign-up required."}
                 </p>
 
                 <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -317,15 +325,17 @@ export default function Home() {
                     className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl text-base font-semibold text-white bg-gradient-to-r from-violet-600 via-indigo-600 to-violet-600 shadow-xl shadow-violet-600/30 hover:shadow-violet-600/50 hover:scale-[1.02] active:scale-95 transition-all duration-200"
                   >
                     <SparkleIcon className="w-5 h-5 text-violet-200" />
-                    Predict Now — It's Free
+                    {isLoggedIn ? "Predict Now" : "Predict Now — It's Free"}
                     <ArrowRightIcon />
                   </Link>
-                  <Link
-                    to="/register"
-                    className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-2xl text-base font-medium text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 transition-all duration-200"
-                  >
-                    Create a Free Account
-                  </Link>
+                  {!isLoggedIn && (
+                    <Link
+                      to="/register"
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-2xl text-base font-medium text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 transition-all duration-200"
+                    >
+                      Create a Free Account
+                    </Link>
+                  )}
                 </div>
 
                 <p className="mt-5 text-xs text-slate-500">
