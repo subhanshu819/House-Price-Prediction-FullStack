@@ -236,9 +236,6 @@ export default function Register() {
               <span className="text-white font-extrabold text-2xl tracking-tight">
                 House<span className="text-violet-400">Predict</span>
               </span>
-              <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-violet-500/15 border border-violet-500/30 text-violet-300 text-[10px] font-bold uppercase tracking-wider">
-                <SparkleIcon />AI
-              </span>
             </Link>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Create your account</h1>
             <p className="mt-1.5 text-sm text-slate-400">Free forever. No credit card required.</p>

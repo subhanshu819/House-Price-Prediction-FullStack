@@ -245,10 +245,6 @@ export default function PredictionHistory() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-wider mb-2">
-              <SparkleIcon className="w-3.5 h-3.5 text-violet-400" />
-              <span>Valuation Archives</span>
-            </div>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Prediction History
             </h1>

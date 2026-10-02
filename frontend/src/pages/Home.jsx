@@ -27,7 +27,7 @@ const FEATURES = [
     icon: "⚡",
     color: "violet",
     title: "Instant Valuations",
-    desc: "Sub-second ML inference delivers accurate price estimates the moment you submit property details.",
+    desc: "Sub-second inference delivers accurate price estimates the moment you submit property details.",
   },
   {
     icon: "🎯",
@@ -71,8 +71,8 @@ const STEPS = [
   },
   {
     step: "02",
-    title: "AI Analyses the Data",
-    desc: "Our stacked ML pipeline benchmarks your inputs against live market comparables.",
+    title: "Instant Analysis",
+    desc: "Our automated pipeline benchmarks your inputs against live market comparables.",
     color: "from-indigo-500/20 to-indigo-600/10 border-indigo-500/30",
     text: "text-indigo-400",
   },
@@ -105,12 +105,6 @@ export default function Home() {
         {/* ═══════════════════════ HERO ═══════════════════════ */}
         <section className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto text-center">
-            {/* Status badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs sm:text-sm font-medium mb-8 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              ML Model v2.4 is live and fully operational
-            </div>
-
             {/* Main headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] max-w-5xl mx-auto">
               Know Your Home's{" "}
@@ -125,8 +119,7 @@ export default function Home() {
 
             {/* Sub-headline */}
             <p className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light">
-              HousePredict uses advanced machine learning to deliver instant,
-              accurate property valuations — no agents, no waiting, no guesswork.
+              HousePredict delivers instant, accurate property valuations — no agents, no waiting, no guesswork.
             </p>
 
             {/* CTAs */}
@@ -218,7 +211,7 @@ export default function Home() {
                 From Details to Valuation in Seconds
               </h2>
               <p className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
-                Our pipeline bridges raw property specs with production-grade ML regression — instantly.
+                Our pipeline bridges raw property specs with production-grade valuation regression — instantly.
               </p>
             </div>
 
@@ -302,10 +295,6 @@ export default function Home() {
               <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
 
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-500/15 border border-violet-500/30 text-violet-300 text-xs font-semibold uppercase tracking-wider mb-6">
-                  <SparkleIcon className="w-3.5 h-3.5" />
-                  Start for Free
-                </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
                   Ready to Find Out What
                   <br className="hidden sm:block" />
@@ -315,8 +304,8 @@ export default function Home() {
                 </h2>
                 <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-xl mx-auto">
                   {isLoggedIn
-                    ? "Run your next AI valuation today — completely free."
-                    : "Run your first AI valuation today — completely free, no sign-up required."}
+                    ? "Run your next valuation today — completely free."
+                    : "Run your first valuation today — completely free, no sign-up required."}
                 </p>
 
                 <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

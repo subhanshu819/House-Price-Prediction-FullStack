@@ -414,7 +414,7 @@ export default function Navbar() {
                 <span>Get Started Free</span>
               </Link>
               <p className="text-center text-slate-500 text-xs mt-3">
-                Accurate AI property valuations
+                Accurate property valuations
               </p>
             </>
           )}

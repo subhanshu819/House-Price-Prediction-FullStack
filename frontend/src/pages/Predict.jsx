@@ -262,10 +262,6 @@ export default function Predict() {
       <main className="flex-grow pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-wider mb-4">
-            <SparkleIcon className="w-3.5 h-3.5 text-violet-400" />
-            <span>AI Valuation Engine</span>
-          </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             House Price Predictor
           </h1>

@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const HouseIcon = () => (
   <svg
@@ -42,22 +42,11 @@ export default function Footer() {
               <span className="text-white font-extrabold text-lg tracking-tight">
                 House<span className="text-violet-400">Predict</span>
               </span>
-              <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-violet-500/15 border border-violet-500/30 text-violet-300 text-[10px] font-semibold uppercase tracking-wider">
-                <SparkleIcon />
-                AI
-              </span>
             </Link>
             
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
-              Empowering home buyers, sellers, and real estate professionals with high-precision AI valuations and real-time market insights.
+              Empowering home buyers, sellers, and real estate professionals with high-precision valuations and real-time market insights.
             </p>
-
-            <div className="pt-1">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                ML Model v2.4 Live & Active
-              </span>
-            </div>
           </div>
 
           {/* Quick Links */}

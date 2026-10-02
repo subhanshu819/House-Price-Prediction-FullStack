@@ -134,10 +134,6 @@ export default function Dashboard() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-8 border-b border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-medium mb-3">
-              <SparkleIcon className="w-3.5 h-3.5 text-violet-400" />
-              <span>House Price Prediction Dashboard</span>
-            </div>
             <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
               Your{" "}
               <span className="bg-gradient-to-r from-violet-400 to-indigo-300 bg-clip-text text-transparent">
@@ -145,7 +141,7 @@ export default function Dashboard() {
               </span>
             </h1>
             <p className="mt-1 text-sm sm:text-base text-slate-400">
-              Real-time summary of your Random Forest ML valuations.
+              Real-time summary of your property valuations.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">

@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 
 const BookmarkIcon = ({ filled = false }) => (
   <svg
@@ -79,11 +79,7 @@ export default function PropertyCard({
         
         {/* Top: Header & Save Icon Button */}
         <div>
-          <div className="flex items-start justify-between gap-3 mb-3">
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-[10px] font-semibold uppercase tracking-wider">
-              <SparkleIcon />
-              AI Valued
-            </span>
+          <div className="flex items-start justify-end mb-3">
             <span className="text-xs text-slate-500 font-medium">{date}</span>
           </div>
 
