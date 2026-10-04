@@ -199,18 +199,18 @@ export default function AdminDashboard() {
   /* ─── State 2: Access Denied (Role !== 'admin') ─── */
   if (accessDenied) {
     return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-hidden">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-hidden transition-colors duration-200">
         <Navbar />
         <main className="flex-grow flex items-center justify-center px-4 pt-28 pb-16">
-          <div className="max-w-md w-full text-center p-8 rounded-2xl bg-slate-900/90 border border-rose-900/40 shadow-2xl shadow-rose-950/20 backdrop-blur-sm">
-            <div className="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center mx-auto mb-4">
+          <div className="max-w-md w-full text-center p-8 rounded-2xl bg-white dark:bg-slate-900/90 border border-rose-300 dark:border-rose-900/40 shadow-2xl shadow-rose-950/20 backdrop-blur-sm">
+            <div className="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-500 dark:text-rose-400 flex items-center justify-center mx-auto mb-4">
               <ShieldLockIcon />
             </div>
-            <h1 className="text-2xl font-extrabold text-white tracking-tight">Access Denied</h1>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs font-semibold uppercase tracking-wider my-3">
+            <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Access Denied</h1>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-300 text-xs font-semibold uppercase tracking-wider my-3">
               <span>Admin Role Required</span>
             </div>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               Your account does not possess administrative privileges. Access to this control panel is strictly restricted to system administrators.
             </p>
             <div className="mt-6 flex flex-col gap-3">
@@ -222,7 +222,7 @@ export default function AdminDashboard() {
               </Link>
               <Link
                 to="/"
-                className="w-full py-2.5 px-5 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-950 border border-slate-800 transition-colors"
+                className="w-full py-2.5 px-5 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 transition-colors"
               >
                 Return to Home
               </Link>
@@ -241,50 +241,50 @@ export default function AdminDashboard() {
   const mlStatus = stats?.mlStatus || {};
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-hidden transition-colors duration-200">
       {/* Background ambient glow */}
-      <div className="absolute top-10 left-1/4 -translate-x-1/2 w-[850px] h-[380px] bg-gradient-to-tr from-violet-600/15 via-indigo-500/10 to-transparent blur-[140px] pointer-events-none -z-10" />
-      <div className="absolute top-[550px] right-[-5%] w-[600px] h-[450px] bg-indigo-500/10 blur-[150px] pointer-events-none -z-10" />
+      <div className="absolute top-10 left-1/4 -translate-x-1/2 w-[850px] h-[380px] bg-gradient-to-tr from-violet-600/10 dark:from-violet-600/15 via-indigo-500/5 dark:via-indigo-500/10 to-transparent blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-[550px] right-[-5%] w-[600px] h-[450px] bg-indigo-500/5 dark:bg-indigo-500/10 blur-[150px] pointer-events-none -z-10" />
 
       <Navbar />
 
       <main className="flex-grow pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-800">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-200 dark:border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-wider mb-2">
-              <SparkleIcon className="w-3.5 h-3.5 text-violet-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-600 dark:text-violet-300 text-xs font-semibold uppercase tracking-wider mb-2">
+              <SparkleIcon className="w-3.5 h-3.5 text-violet-600 dark:text-violet-400" />
               <span>Administrative Operations</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Admin Dashboard
             </h1>
-            <p className="mt-1 text-sm text-slate-400">
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
               Live system monitoring, user analytics, model inference metrics, and operational control.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
             {/* Real FastAPI ML Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300">
+            <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 shadow-sm">
               <span
                 className={`w-2 h-2 rounded-full ${
                   mlStatus.status === "healthy"
-                    ? "bg-emerald-400 animate-pulse"
+                    ? "bg-emerald-500 dark:bg-emerald-400 animate-pulse"
                     : mlStatus.status === "degraded"
-                    ? "bg-amber-400 animate-pulse"
+                    ? "bg-amber-500 dark:bg-amber-400 animate-pulse"
                     : "bg-rose-500"
                 }`}
               />
-              <span className="font-medium text-slate-200">
+              <span className="font-medium text-slate-700 dark:text-slate-200">
                 Inference Server:{" "}
                 <span
                   className={
                     mlStatus.status === "healthy"
-                      ? "text-emerald-400"
+                      ? "text-emerald-600 dark:text-emerald-400"
                       : mlStatus.status === "degraded"
-                      ? "text-amber-400"
-                      : "text-rose-400"
+                      ? "text-amber-600 dark:text-amber-400"
+                      : "text-rose-600 dark:text-rose-400"
                   }
                 >
                   {mlStatus.status === "healthy"
@@ -301,10 +301,10 @@ export default function AdminDashboard() {
               type="button"
               onClick={handleManualRefresh}
               disabled={loading || isRefreshing}
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-medium text-slate-300 hover:text-white transition-all active:scale-95 disabled:opacity-60"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all active:scale-95 disabled:opacity-60 shadow-sm"
               title="Refresh live metrics"
             >
-              <RefreshIcon className={`w-3.5 h-3.5 ${isRefreshing ? "animate-spin text-violet-400" : ""}`} />
+              <RefreshIcon className={`w-3.5 h-3.5 ${isRefreshing ? "animate-spin text-violet-500" : ""}`} />
               <span>Refresh</span>
             </button>
           </div>
@@ -312,11 +312,11 @@ export default function AdminDashboard() {
 
         {/* Error notification if any */}
         {error && (
-          <div className="my-6 p-4 rounded-xl bg-rose-950/30 border border-rose-900/50 text-rose-300 text-sm flex items-center justify-between">
+          <div className="my-6 p-4 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 text-rose-700 dark:text-rose-300 text-sm flex items-center justify-between">
             <span>{error}</span>
             <button
               onClick={handleManualRefresh}
-              className="underline text-xs hover:text-white font-semibold"
+              className="underline text-xs hover:text-slate-900 dark:hover:text-white font-semibold"
             >
               Retry
             </button>
@@ -326,18 +326,18 @@ export default function AdminDashboard() {
         {/* ================= 4 PRIMARY METRIC CARDS ================= */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 my-8">
           {/* Card 1: Total Users */}
-          <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all backdrop-blur-sm shadow-lg">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all backdrop-blur-sm shadow-sm dark:shadow-lg">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Users</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Total Users</span>
               <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
                 <UsersIcon />
               </div>
             </div>
             <div className="mt-4 flex items-baseline gap-2">
               {loading ? (
-                <div className="h-9 w-16 bg-slate-800 rounded animate-pulse" />
+                <div className="h-9 w-16 bg-slate-200 dark:bg-slate-800 rounded animate-pulse" />
               ) : (
-                <span className="text-3xl font-extrabold text-white">
+                <span className="text-3xl font-extrabold text-slate-900 dark:text-white">
                   {stats.totalUsers != null ? stats.totalUsers : 0}
                 </span>
               )}
@@ -346,18 +346,18 @@ export default function AdminDashboard() {
           </div>
 
           {/* Card 2: Total Predictions */}
-          <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all backdrop-blur-sm shadow-lg">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all backdrop-blur-sm shadow-sm dark:shadow-lg">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Predictions</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Total Predictions</span>
               <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
                 <ChartBarIcon />
               </div>
             </div>
             <div className="mt-4 flex items-baseline gap-2">
               {loading ? (
-                <div className="h-9 w-16 bg-slate-800 rounded animate-pulse" />
+                <div className="h-9 w-16 bg-slate-200 dark:bg-slate-800 rounded animate-pulse" />
               ) : (
-                <span className="text-3xl font-extrabold text-white">
+                <span className="text-3xl font-extrabold text-slate-900 dark:text-white">
                   {stats.totalPredictions != null ? stats.totalPredictions : 0}
                 </span>
               )}
@@ -366,27 +366,27 @@ export default function AdminDashboard() {
           </div>
 
           {/* Card 3: Most Active User */}
-          <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all backdrop-blur-sm shadow-lg">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all backdrop-blur-sm shadow-sm dark:shadow-lg">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Most Active User</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Most Active User</span>
               <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
                 <ActivityIcon />
               </div>
             </div>
             <div className="mt-4 flex items-baseline gap-2 min-w-0">
               {loading ? (
-                <div className="h-9 w-28 bg-slate-800 rounded animate-pulse" />
+                <div className="h-9 w-28 bg-slate-200 dark:bg-slate-800 rounded animate-pulse" />
               ) : stats.mostActiveUser ? (
                 <div className="min-w-0">
-                  <span className="text-xl font-extrabold text-white block truncate">
+                  <span className="text-xl font-extrabold text-slate-900 dark:text-white block truncate">
                     {stats.mostActiveUser.name}
                   </span>
-                  <span className="text-xs font-semibold text-emerald-400">
+                  <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
                     {stats.mostActiveUser.predictionsCount} predictions
                   </span>
                 </div>
               ) : (
-                <span className="text-lg font-bold text-slate-500">No activity yet</span>
+                <span className="text-lg font-bold text-slate-400 dark:text-slate-500">No activity yet</span>
               )}
             </div>
             <p className="mt-1 text-xs text-slate-500 truncate">
@@ -395,31 +395,31 @@ export default function AdminDashboard() {
           </div>
 
           {/* Card 4: ML Service Health */}
-          <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all backdrop-blur-sm shadow-lg">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all backdrop-blur-sm shadow-sm dark:shadow-lg">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">ML API Status</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">ML API Status</span>
               <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
                 <CpuChipIcon />
               </div>
             </div>
             <div className="mt-4 flex items-baseline gap-2">
               {loading ? (
-                <div className="h-9 w-24 bg-slate-800 rounded animate-pulse" />
+                <div className="h-9 w-24 bg-slate-200 dark:bg-slate-800 rounded animate-pulse" />
               ) : (
                 <>
                   <span
                     className={`text-2xl font-extrabold capitalize ${
                       mlStatus.status === "healthy"
-                        ? "text-emerald-400"
+                        ? "text-emerald-600 dark:text-emerald-400"
                         : mlStatus.status === "degraded"
-                        ? "text-amber-400"
-                        : "text-rose-400"
+                        ? "text-amber-600 dark:text-amber-400"
+                        : "text-rose-600 dark:text-rose-400"
                     }`}
                   >
                     {mlStatus.status || "Unknown"}
                   </span>
                   {mlStatus.latencyMs != null && (
-                    <span className="text-xs font-medium text-slate-400">
+                    <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
                       {mlStatus.latencyMs}ms latency
                     </span>
                   )}
@@ -431,23 +431,23 @@ export default function AdminDashboard() {
         </div>
 
         {/* ================= ML MODEL INFORMATION CARD ================= */}
-        <div className="my-8 rounded-2xl border border-slate-800 bg-slate-900/80 p-6 sm:p-8 backdrop-blur-sm shadow-xl">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+        <div className="my-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-6 sm:p-8 backdrop-blur-sm shadow-sm dark:shadow-xl">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
             <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-violet-400 uppercase tracking-wider mb-1">
+              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider mb-1">
                 <CpuChipIcon />
                 <span>Production Machine Learning Core</span>
               </div>
-              <h3 className="text-xl font-bold text-white tracking-tight">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
                 {modelInfo.name || "Random Forest Regressor"}
               </h3>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                 {modelInfo.architecture || "RandomForestRegressor (scikit-learn)"}
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-semibold flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 dark:text-emerald-300 text-xs font-semibold flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400" />
                 Active Model
               </span>
             </div>
@@ -456,7 +456,7 @@ export default function AdminDashboard() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6">
             <div>
               <span className="text-xs text-slate-500 uppercase tracking-wider block">R² Determination</span>
-              <span className="text-2xl font-bold text-emerald-400 mt-1 block">
+              <span className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mt-1 block">
                 {modelInfo.r2Score ? `~${modelInfo.r2Score}` : "approximately 0.806"}
               </span>
               <span className="text-[11px] text-slate-500 block mt-0.5">High variance capture</span>
@@ -464,7 +464,7 @@ export default function AdminDashboard() {
 
             <div>
               <span className="text-xs text-slate-500 uppercase tracking-wider block">Dataset Records</span>
-              <span className="text-2xl font-bold text-indigo-400 mt-1 block">
+              <span className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mt-1 block">
                 {modelInfo.datasetRecords ? Number(modelInfo.datasetRecords).toLocaleString() : "20,640"}
               </span>
               <span className="text-[11px] text-slate-500 block mt-0.5">
@@ -474,7 +474,7 @@ export default function AdminDashboard() {
 
             <div>
               <span className="text-xs text-slate-500 uppercase tracking-wider block">Feature Dimensions</span>
-              <span className="text-2xl font-bold text-white mt-1 block">
+              <span className="text-2xl font-bold text-slate-900 dark:text-white mt-1 block">
                 {modelInfo.featuresCount || 8} Inputs
               </span>
               <span className="text-[11px] text-slate-500 block mt-0.5">MedInc, HouseAge, AveRooms, etc.</span>
@@ -482,10 +482,10 @@ export default function AdminDashboard() {
 
             <div>
               <span className="text-xs text-slate-500 uppercase tracking-wider block">Model Engine</span>
-              <span className="text-lg font-bold text-slate-200 mt-1 block">
+              <span className="text-lg font-bold text-slate-800 dark:text-slate-200 mt-1 block">
                 FastAPI + Joblib
               </span>
-              <span className="text-[11px] text-emerald-400 block mt-0.5">
+              <span className="text-[11px] text-emerald-600 dark:text-emerald-400 block mt-0.5">
                 {mlStatus.modelLoaded ? "Model Loaded in Memory" : "Microservice Online"}
               </span>
             </div>
@@ -496,13 +496,13 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 my-8">
           
           {/* User Management Table (2 Columns) */}
-          <div className="lg:col-span-2 rounded-2xl border border-slate-800 bg-slate-900/80 overflow-hidden backdrop-blur-sm shadow-xl">
-            <div className="p-6 border-b border-slate-800 flex items-center justify-between">
+          <div className="lg:col-span-2 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 overflow-hidden backdrop-blur-sm shadow-sm dark:shadow-xl">
+            <div className="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
               <div>
-                <h3 className="text-lg font-bold text-white">User Management</h3>
-                <p className="text-xs text-slate-400">All registered accounts and actual prediction engagement</p>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white">User Management</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">All registered accounts and actual prediction engagement</p>
               </div>
-              <span className="text-xs px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 font-medium">
+              <span className="text-xs px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 font-medium">
                 {usersList.length} Users
               </span>
             </div>
@@ -510,16 +510,16 @@ export default function AdminDashboard() {
             {loading ? (
               <div className="p-12 text-center">
                 <div className="w-8 h-8 border-2 border-violet-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-                <p className="text-xs text-slate-400">Loading user accounts...</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Loading user accounts...</p>
               </div>
             ) : usersList.length === 0 ? (
-              <div className="p-12 text-center text-slate-500 text-sm">
+              <div className="p-12 text-center text-slate-400 dark:text-slate-500 text-sm">
                 No registered users found.
               </div>
             ) : (
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm text-slate-300">
-                  <thead className="bg-slate-950/70 border-b border-slate-800 text-xs uppercase font-semibold text-slate-400 tracking-wider">
+                <table className="w-full text-left text-sm text-slate-700 dark:text-slate-300">
+                  <thead className="bg-slate-50 dark:bg-slate-950/70 border-b border-slate-200 dark:border-slate-800 text-xs uppercase font-semibold text-slate-500 dark:text-slate-400 tracking-wider">
                     <tr>
                       <th className="px-6 py-3.5">User</th>
                       <th className="px-6 py-3.5">Role</th>
@@ -527,26 +527,26 @@ export default function AdminDashboard() {
                       <th className="px-6 py-3.5 text-right">Joined</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800/80">
+                  <tbody className="divide-y divide-slate-200 dark:divide-slate-800/80">
                     {usersList.map((u) => (
-                      <tr key={u.id} className="hover:bg-slate-800/40 transition-colors">
+                      <tr key={u.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
                         <td className="px-6 py-4">
-                          <div className="font-semibold text-white">{u.name}</div>
+                          <div className="font-semibold text-slate-900 dark:text-white">{u.name}</div>
                           <div className="text-xs text-slate-500">{u.email}</div>
                         </td>
                         <td className="px-6 py-4">
                           <span
                             className={`text-xs px-2.5 py-0.5 rounded-full font-semibold ${
                               u.role === "admin"
-                                ? "bg-violet-950/80 text-violet-300 border border-violet-700/60"
-                                : "bg-slate-800 text-slate-300 border border-slate-700"
+                                ? "bg-violet-100 dark:bg-violet-950/80 text-violet-700 dark:text-violet-300 border border-violet-300 dark:border-violet-700/60"
+                                : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
                             }`}
                           >
                             {u.role}
                           </span>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="font-semibold text-white font-mono">{u.predictionsCount}</span>
+                          <span className="font-semibold text-slate-900 dark:text-white font-mono">{u.predictionsCount}</span>
                         </td>
                         <td className="px-6 py-4 text-right text-xs text-slate-500">
                           {formatDate(u.createdAt)}
@@ -560,38 +560,38 @@ export default function AdminDashboard() {
           </div>
 
           {/* Recent Activity Log (1 Column) */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 backdrop-blur-sm shadow-xl flex flex-col justify-between">
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-6 backdrop-blur-sm shadow-sm dark:shadow-xl flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-1">
-                <h3 className="text-lg font-bold text-white">Recent Predictions</h3>
-                <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded-md border border-emerald-800/40">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white">Recent Predictions</h3>
+                <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-md border border-emerald-200 dark:border-emerald-800/40">
                   Live Feed
                 </span>
               </div>
-              <p className="text-xs text-slate-400 mb-6">Real-time valuation events from MongoDB</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">Real-time valuation events from MongoDB</p>
 
               {loading ? (
                 <div className="p-8 text-center">
                   <div className="w-6 h-6 border-2 border-violet-500 border-t-transparent rounded-full animate-spin mx-auto mb-2" />
-                  <p className="text-xs text-slate-400">Loading activity...</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Loading activity...</p>
                 </div>
               ) : recentActivity.length === 0 ? (
-                <div className="p-8 text-center text-slate-500 text-xs">
+                <div className="p-8 text-center text-slate-400 dark:text-slate-500 text-xs">
                   No prediction activity recorded yet.
                 </div>
               ) : (
                 <div className="space-y-3 max-h-[420px] overflow-y-auto pr-1">
                   {recentActivity.map((act) => (
-                    <div key={act.id} className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-1">
+                    <div key={act.id} className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/80 space-y-1">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="font-semibold text-violet-300 truncate max-w-[150px]">
+                        <span className="font-semibold text-violet-600 dark:text-violet-300 truncate max-w-[150px]">
                           {act.userName}
                         </span>
                         <span className="text-[11px] text-slate-500">
                           {formatTimeAgo(act.createdAt)}
                         </span>
                       </div>
-                      <p className="text-xs text-slate-300 leading-relaxed font-mono">
+                      <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-mono">
                         {act.action}
                       </p>
                     </div>
@@ -600,10 +600,10 @@ export default function AdminDashboard() {
               )}
             </div>
 
-            <div className="pt-6 border-t border-slate-800 mt-6">
+            <div className="pt-6 border-t border-slate-200 dark:border-slate-800 mt-6">
               <Link
                 to="/predict"
-                className="w-full block text-center py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-slate-950 hover:bg-slate-800 border border-slate-800 transition-colors"
+                className="w-full block text-center py-2.5 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-50 dark:bg-slate-950 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 transition-colors shadow-sm"
               >
                 Test Inference Execution →
               </Link>

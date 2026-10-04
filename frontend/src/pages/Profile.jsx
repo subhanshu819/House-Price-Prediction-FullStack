@@ -340,24 +340,24 @@ export default function Profile() {
   if (!isAuthenticated) return null;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-hidden transition-colors duration-200">
       {/* Background ambient lighting */}
-      <div className="absolute top-10 left-1/3 -translate-x-1/2 w-[850px] h-[380px] bg-gradient-to-tr from-violet-600/15 via-indigo-500/10 to-transparent blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-10 left-1/3 -translate-x-1/2 w-[850px] h-[380px] bg-gradient-to-tr from-violet-600/10 dark:from-violet-600/15 via-indigo-500/5 dark:via-indigo-500/10 to-transparent blur-[140px] pointer-events-none -z-10" />
 
       {/* Navbar */}
       <Navbar />
 
       <main className="flex-grow pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full space-y-8">
         {/* Header */}
-        <div className="pb-6 border-b border-slate-800">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-wider mb-2">
-            <SparkleIcon className="w-3.5 h-3.5 text-violet-400" />
+        <div className="pb-6 border-b border-slate-200 dark:border-slate-800">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-600 dark:text-violet-300 text-xs font-semibold uppercase tracking-wider mb-2">
+            <SparkleIcon className="w-3.5 h-3.5 text-violet-600 dark:text-violet-400" />
             <span>Account Preferences</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             User Profile
           </h1>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
             Manage your personal information and security preferences.
           </p>
         </div>
@@ -365,35 +365,35 @@ export default function Profile() {
         {profileLoading ? (
           <div className="flex items-center justify-center py-24">
             <LoadingSpinner />
-            <span className="ml-3 text-sm text-slate-400">Loading profile…</span>
+            <span className="ml-3 text-sm text-slate-500 dark:text-slate-400">Loading profile…</span>
           </div>
         ) : (
           <>
             {/* 1. Profile Avatar & Information Card */}
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/90 p-6 sm:p-8 backdrop-blur-sm shadow-xl">
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/90 p-6 sm:p-8 backdrop-blur-sm shadow-sm dark:shadow-xl">
               <FeedbackBanner
                 type={profileFeedback.type}
                 message={profileFeedback.message}
                 onDismiss={() => setProfileFeedback({ type: "", message: "" })}
               />
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6 border-b border-slate-800">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6 border-b border-slate-200 dark:border-slate-800">
                 <div className="flex items-center gap-5">
                   {/* Profile Avatar */}
                   <div className="relative group">
                     <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-violet-500 via-indigo-600 to-violet-800 p-0.5 shadow-lg shadow-violet-500/25 flex items-center justify-center">
-                      <div className="w-full h-full bg-slate-950/80 rounded-2xl flex items-center justify-center">
+                      <div className="w-full h-full bg-slate-100 dark:bg-slate-950/80 rounded-2xl flex items-center justify-center">
                         <UserIcon />
                       </div>
                     </div>
-                    <span className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-emerald-400 border-2 border-slate-900" title="Online" />
+                    <span className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900" title="Online" />
                   </div>
 
                   <div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-white">{profileData.name}</h2>
-                    <p className="text-sm text-slate-400">{profileData.email}</p>
+                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{profileData.name}</h2>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{profileData.email}</p>
                     <div className="mt-2 flex items-center gap-2">
-                      <span className="text-xs px-2.5 py-0.5 rounded-full bg-violet-500/15 border border-violet-500/30 text-violet-300 font-semibold capitalize">
+                      <span className="text-xs px-2.5 py-0.5 rounded-full bg-violet-500/15 border border-violet-500/30 text-violet-600 dark:text-violet-300 font-semibold capitalize">
                         {profileData.role}
                       </span>
                       <span className="text-xs text-slate-500">• Member since {joinedDate}</span>
@@ -412,7 +412,7 @@ export default function Profile() {
                       setEditData({ name: profileData.name, email: profileData.email });
                     }
                   }}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 transition-all duration-200 shadow-sm"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-200 shadow-sm"
                 >
                   <EditIcon />
                   <span>{isEditing ? "Cancel Editing" : "Edit Profile"}</span>
@@ -421,30 +421,30 @@ export default function Profile() {
 
               {/* Account Information Details */}
               <div className="pt-6">
-                <h3 className="text-xs uppercase font-semibold tracking-wider text-slate-400 mb-4">
+                <h3 className="text-xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400 mb-4">
                   Account Information
                 </h3>
 
                 {isEditing ? (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs text-slate-400 mb-1">Full Name</label>
+                      <label className="block text-xs text-slate-600 dark:text-slate-400 mb-1">Full Name</label>
                       <input
                         type="text"
                         name="name"
                         value={editData.name}
                         onChange={handleEditChange}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs text-slate-400 mb-1">Email Address</label>
+                      <label className="block text-xs text-slate-600 dark:text-slate-400 mb-1">Email Address</label>
                       <input
                         type="email"
                         name="email"
                         value={editData.email}
                         onChange={handleEditChange}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50"
                       />
                     </div>
                     <div className="sm:col-span-2 pt-2">
@@ -463,19 +463,19 @@ export default function Profile() {
                   <dl className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 text-sm">
                     <div>
                       <dt className="text-slate-500 text-xs">Full Name</dt>
-                      <dd className="text-white font-medium mt-0.5">{profileData.name}</dd>
+                      <dd className="text-slate-900 dark:text-white font-medium mt-0.5">{profileData.name}</dd>
                     </div>
                     <div>
                       <dt className="text-slate-500 text-xs">Email Address</dt>
-                      <dd className="text-white font-medium mt-0.5">{profileData.email}</dd>
+                      <dd className="text-slate-900 dark:text-white font-medium mt-0.5">{profileData.email}</dd>
                     </div>
                     <div>
                       <dt className="text-slate-500 text-xs">Role</dt>
-                      <dd className="text-white font-medium mt-0.5 capitalize">{profileData.role}</dd>
+                      <dd className="text-slate-900 dark:text-white font-medium mt-0.5 capitalize">{profileData.role}</dd>
                     </div>
                     <div>
                       <dt className="text-slate-500 text-xs">Member Since</dt>
-                      <dd className="text-white font-medium mt-0.5">{joinedDate}</dd>
+                      <dd className="text-slate-900 dark:text-white font-medium mt-0.5">{joinedDate}</dd>
                     </div>
                   </dl>
                 )}
@@ -483,12 +483,12 @@ export default function Profile() {
             </div>
 
             {/* 2. Change Password Section */}
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/90 p-6 sm:p-8 backdrop-blur-sm shadow-xl">
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/90 p-6 sm:p-8 backdrop-blur-sm shadow-sm dark:shadow-xl">
               <div className="flex items-center gap-2 mb-1">
                 <KeyIcon />
-                <h3 className="text-lg font-bold text-white">Change Password</h3>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white">Change Password</h3>
               </div>
-              <p className="text-xs text-slate-400 mb-6">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">
                 Ensure your account uses a secure password with at least 6 characters.
               </p>
 
@@ -500,7 +500,7 @@ export default function Profile() {
 
               <form onSubmit={handlePasswordSubmit} className="space-y-4 max-w-md">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                     Current Password
                   </label>
                   <input
@@ -510,12 +510,12 @@ export default function Profile() {
                     value={passwordState.currentPassword}
                     onChange={handlePasswordChange}
                     placeholder="••••••••"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                     New Password
                   </label>
                   <input
@@ -525,12 +525,12 @@ export default function Profile() {
                     value={passwordState.newPassword}
                     onChange={handlePasswordChange}
                     placeholder="••••••••"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                     Confirm New Password
                   </label>
                   <input
@@ -540,7 +540,7 @@ export default function Profile() {
                     value={passwordState.confirmPassword}
                     onChange={handlePasswordChange}
                     placeholder="••••••••"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50"
                   />
                 </div>
 
@@ -556,12 +556,12 @@ export default function Profile() {
             </div>
 
             {/* 3. Delete Account Section (Danger Zone) */}
-            <div className="rounded-2xl border border-rose-900/40 bg-rose-950/10 p-6 sm:p-8 backdrop-blur-sm">
+            <div className="rounded-2xl border border-rose-300 dark:border-rose-900/40 bg-rose-50 dark:bg-rose-950/10 p-6 sm:p-8 backdrop-blur-sm shadow-sm">
               <div className="flex items-center gap-2 mb-1">
                 <WarningIcon />
-                <h3 className="text-lg font-bold text-rose-300">Delete Account</h3>
+                <h3 className="text-lg font-bold text-rose-700 dark:text-rose-300">Delete Account</h3>
               </div>
-              <p className="text-xs text-slate-400 mb-6 max-w-xl">
+              <p className="text-xs text-slate-600 dark:text-slate-400 mb-6 max-w-xl">
                 Permanently delete your profile, prediction history, and account data.
                 This action cannot be undone.
               </p>
@@ -574,7 +574,7 @@ export default function Profile() {
 
               {showDeleteConfirm ? (
                 <div className="space-y-4 max-w-md">
-                  <p className="text-xs text-rose-300">
+                  <p className="text-xs text-rose-700 dark:text-rose-300">
                     Type <span className="font-bold">DELETE</span> below to confirm permanent account deletion:
                   </p>
                   <input
@@ -582,14 +582,14 @@ export default function Profile() {
                     value={deleteConfirmText}
                     onChange={(e) => setDeleteConfirmText(e.target.value)}
                     placeholder='Type "DELETE" to confirm'
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-rose-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-rose-500/50"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-950 border border-rose-400 dark:border-rose-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-rose-500/50"
                   />
                   <div className="flex items-center gap-3">
                     <button
                       type="button"
                       onClick={handleDeleteAccount}
                       disabled={deleting || deleteConfirmText !== "DELETE"}
-                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-rose-700 hover:bg-rose-600 transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-rose-600 hover:bg-rose-500 transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {deleting && <LoadingSpinner />}
                       Confirm Deletion
@@ -601,7 +601,7 @@ export default function Profile() {
                         setDeleteConfirmText("");
                         setDeleteFeedback({ type: "", message: "" });
                       }}
-                      className="px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors"
+                      className="px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors"
                     >
                       Cancel
                     </button>
@@ -611,7 +611,7 @@ export default function Profile() {
                 <button
                   type="button"
                   onClick={() => setShowDeleteConfirm(true)}
-                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-semibold text-rose-300 hover:text-white bg-rose-950/60 hover:bg-rose-900 border border-rose-800 hover:border-rose-700 transition-all duration-200 shadow-sm"
+                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-semibold text-rose-600 dark:text-rose-300 hover:text-white bg-rose-100 dark:bg-rose-950/60 hover:bg-rose-600 dark:hover:bg-rose-900 border border-rose-300 dark:border-rose-800 hover:border-rose-400 dark:hover:border-rose-700 transition-all duration-200 shadow-sm"
                 >
                   Delete Account Permanently
                 </button>
@@ -626,3 +626,4 @@ export default function Profile() {
     </div>
   );
 }
+

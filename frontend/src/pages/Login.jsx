@@ -170,11 +170,11 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-x-hidden transition-colors duration-200">
       {/* Ambient glow */}
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[420px] bg-gradient-radial from-violet-600/20 via-indigo-600/10 to-transparent blur-3xl rounded-full" />
-        <div className="absolute top-1/3 -right-32 w-[350px] h-[350px] bg-indigo-500/8 blur-3xl rounded-full" />
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[420px] bg-gradient-radial from-violet-600/10 dark:from-violet-600/20 via-indigo-600/5 dark:via-indigo-600/10 to-transparent blur-3xl rounded-full" />
+        <div className="absolute top-1/3 -right-32 w-[350px] h-[350px] bg-indigo-500/5 dark:bg-indigo-500/8 blur-3xl rounded-full" />
       </div>
 
       <Navbar />
@@ -188,34 +188,34 @@ export default function Login() {
               <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 text-white shadow-lg shadow-violet-500/30 group-hover:scale-105 transition-transform duration-200">
                 <HouseIcon />
               </span>
-              <span className="text-white font-extrabold text-2xl tracking-tight">
-                House<span className="text-violet-400">Predict</span>
+              <span className="text-slate-900 dark:text-white font-extrabold text-2xl tracking-tight">
+                House<span className="text-violet-600 dark:text-violet-400">Predict</span>
               </span>
             </Link>
 
             {!forgotMode ? (
               <>
-                <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Welcome back</h1>
-                <p className="mt-1.5 text-sm text-slate-400">Sign in to your HousePredict account</p>
+                <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Welcome back</h1>
+                <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-400">Sign in to your HousePredict account</p>
               </>
             ) : (
               <>
-                <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Reset password</h1>
-                <p className="mt-1.5 text-sm text-slate-400">We'll send a reset link to your inbox</p>
+                <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Reset password</h1>
+                <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-400">We'll send a reset link to your inbox</p>
               </>
             )}
           </div>
 
           {/* ── Card ── */}
-          <div className="rounded-2xl p-px bg-gradient-to-b from-violet-500/30 via-slate-700/20 to-slate-900/40 shadow-2xl shadow-violet-950/40">
-            <div className="bg-slate-900/95 rounded-2xl p-6 sm:p-8 border border-slate-800/60 backdrop-blur-sm">
+          <div className="rounded-2xl p-px bg-gradient-to-b from-violet-500/30 via-slate-300/30 dark:via-slate-700/20 to-slate-200/40 dark:to-slate-900/40 shadow-2xl shadow-violet-950/20 dark:shadow-violet-950/40">
+            <div className="bg-white/95 dark:bg-slate-900/95 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800/60 backdrop-blur-sm">
 
               {/* ════════════ LOGIN FLOW ════════════ */}
               {!forgotMode && (
                 <>
                   {/* Global error banner */}
                   {error && (
-                    <div className="flex items-start gap-2.5 px-4 py-3.5 mb-5 rounded-xl bg-rose-500/10 border border-rose-500/25 text-rose-300 text-sm font-medium animate-fade-in">
+                    <div className="flex items-start gap-2.5 px-4 py-3.5 mb-5 rounded-xl bg-rose-500/10 border border-rose-500/25 text-rose-600 dark:text-rose-300 text-sm font-medium animate-fade-in">
                       <AlertIcon />
                       <span>{error}</span>
                     </div>
@@ -224,7 +224,7 @@ export default function Login() {
                   {/* Google OAuth placeholder */}
                   <button
                     type="button"
-                    className="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl bg-slate-950/80 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 text-sm font-medium text-slate-200 transition-all duration-200 shadow-sm active:scale-[0.99] group"
+                    className="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 text-sm font-medium text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm active:scale-[0.99] group"
                   >
                     <GoogleIcon />
                     <span>Continue with Google</span>
@@ -232,18 +232,18 @@ export default function Login() {
 
                   {/* Divider */}
                   <div className="relative my-6 flex items-center gap-3">
-                    <div className="flex-grow border-t border-slate-800" />
+                    <div className="flex-grow border-t border-slate-200 dark:border-slate-800" />
                     <span className="text-[11px] uppercase tracking-widest text-slate-500 font-semibold whitespace-nowrap">
                       or sign in with email
                     </span>
-                    <div className="flex-grow border-t border-slate-800" />
+                    <div className="flex-grow border-t border-slate-200 dark:border-slate-800" />
                   </div>
 
                   {/* Form */}
                   <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                     {/* Email */}
                     <div>
-                      <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                      <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
                         Email Address
                       </label>
                       <input
@@ -254,10 +254,10 @@ export default function Login() {
                         value={form.email}
                         onChange={handleChange}
                         placeholder="name@example.com"
-                        className={`w-full px-4 py-3 rounded-xl bg-slate-950/70 border text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 transition-all duration-200
+                        className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 transition-all duration-200
                           ${fieldErrors.email
                             ? "border-rose-500/60 focus:ring-rose-500/30 focus:border-rose-500"
-                            : "border-slate-800 focus:ring-violet-500/40 focus:border-violet-500"}`}
+                            : "border-slate-300 dark:border-slate-800 focus:ring-violet-500/40 focus:border-violet-500"}`}
                       />
                       <FieldError msg={fieldErrors.email} />
                     </div>
@@ -265,13 +265,13 @@ export default function Login() {
                     {/* Password */}
                     <div>
                       <div className="flex items-center justify-between mb-1.5">
-                        <label htmlFor="password" className="block text-xs font-semibold uppercase tracking-wider text-slate-300">
+                        <label htmlFor="password" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                           Password
                         </label>
                         <button
                           type="button"
                           onClick={() => { setForgotMode(true); setForgotSent(false); setForgotEmail(""); }}
-                          className="text-xs font-medium text-violet-400 hover:text-violet-300 transition-colors"
+                          className="text-xs font-medium text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 transition-colors"
                         >
                           Forgot password?
                         </button>
@@ -285,15 +285,15 @@ export default function Login() {
                           value={form.password}
                           onChange={handleChange}
                           placeholder="••••••••"
-                          className={`w-full pl-4 pr-11 py-3 rounded-xl bg-slate-950/70 border text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 transition-all duration-200
+                          className={`w-full pl-4 pr-11 py-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 transition-all duration-200
                             ${fieldErrors.password
                               ? "border-rose-500/60 focus:ring-rose-500/30 focus:border-rose-500"
-                              : "border-slate-800 focus:ring-violet-500/40 focus:border-violet-500"}`}
+                              : "border-slate-300 dark:border-slate-800 focus:ring-violet-500/40 focus:border-violet-500"}`}
                         />
                         <button
                           type="button"
                           onClick={() => setShowPassword((v) => !v)}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 p-1 focus:outline-none transition-colors"
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 focus:outline-none transition-colors"
                           aria-label={showPassword ? "Hide password" : "Show password"}
                         >
                           {showPassword ? <EyeOffIcon /> : <EyeIcon />}
@@ -310,7 +310,7 @@ export default function Login() {
                           type="checkbox"
                           checked={rememberMe}
                           onChange={(e) => setRememberMe(e.target.checked)}
-                          className="peer w-4 h-4 rounded border-slate-700 bg-slate-950 text-violet-600 focus:ring-violet-500 focus:ring-offset-slate-900 cursor-pointer appearance-none checked:bg-violet-600 checked:border-violet-600 transition-all"
+                          className="peer w-4 h-4 rounded border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-violet-600 focus:ring-violet-500 cursor-pointer appearance-none checked:bg-violet-600 checked:border-violet-600 transition-all"
                         />
                         {rememberMe && (
                           <svg className="absolute left-0.5 top-0.5 w-3 h-3 text-white pointer-events-none" viewBox="0 0 12 12" fill="none">
@@ -318,7 +318,7 @@ export default function Login() {
                           </svg>
                         )}
                       </div>
-                      <label htmlFor="remember-me" className="text-sm text-slate-400 cursor-pointer select-none hover:text-slate-300 transition-colors">
+                      <label htmlFor="remember-me" className="text-sm text-slate-600 dark:text-slate-400 cursor-pointer select-none hover:text-slate-900 dark:hover:text-slate-300 transition-colors">
                         Remember me for 30 days
                       </label>
                     </div>
@@ -345,9 +345,9 @@ export default function Login() {
                   </form>
 
                   {/* Sign-up prompt */}
-                  <div className="mt-6 pt-5 border-t border-slate-800/80 text-center text-sm text-slate-400">
+                  <div className="mt-6 pt-5 border-t border-slate-200 dark:border-slate-800/80 text-center text-sm text-slate-600 dark:text-slate-400">
                     Don't have an account?{" "}
-                    <Link to="/register" className="font-semibold text-violet-400 hover:text-violet-300 transition-colors">
+                    <Link to="/register" className="font-semibold text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 transition-colors">
                       Create one free →
                     </Link>
                   </div>
@@ -363,15 +363,15 @@ export default function Login() {
                       <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500/15 border border-emerald-500/30 mb-5">
                         <CheckCircleIcon />
                       </div>
-                      <h2 className="text-lg font-bold text-white mb-2">Check your inbox</h2>
-                      <p className="text-sm text-slate-400 leading-relaxed mb-6">
+                      <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Check your inbox</h2>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
                         We've sent a password reset link to{" "}
-                        <span className="font-semibold text-slate-200">{forgotEmail}</span>.
+                        <span className="font-semibold text-slate-800 dark:text-slate-200">{forgotEmail}</span>.
                         It may take a minute to arrive.
                       </p>
                       <button
                         onClick={() => { setForgotMode(false); setForgotSent(false); }}
-                        className="text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors"
+                        className="text-sm font-medium text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 transition-colors"
                       >
                         ← Back to sign in
                       </button>
@@ -380,7 +380,7 @@ export default function Login() {
                     /* Email input state */
                     <form onSubmit={handleForgotSubmit} className="space-y-5">
                       <div>
-                        <label htmlFor="forgot-email" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                        <label htmlFor="forgot-email" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
                           Your Email Address
                         </label>
                         <input
@@ -390,7 +390,7 @@ export default function Login() {
                           value={forgotEmail}
                           onChange={(e) => setForgotEmail(e.target.value)}
                           placeholder="name@example.com"
-                          className="w-full px-4 py-3 rounded-xl bg-slate-950/70 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/40 focus:border-violet-500 transition-all duration-200"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/40 focus:border-violet-500 transition-all duration-200"
                         />
                       </div>
 
@@ -413,7 +413,7 @@ export default function Login() {
                         <button
                           type="button"
                           onClick={() => setForgotMode(false)}
-                          className="text-sm font-medium text-slate-400 hover:text-slate-300 transition-colors"
+                          className="text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 transition-colors"
                         >
                           ← Back to sign in
                         </button>
@@ -427,7 +427,7 @@ export default function Login() {
           </div>
 
           {/* Bottom trust note */}
-          <p className="mt-6 text-center text-xs text-slate-600">
+          <p className="mt-6 text-center text-xs text-slate-500 dark:text-slate-600">
             🔒 Your data is encrypted and never shared with third parties.
           </p>
         </div>

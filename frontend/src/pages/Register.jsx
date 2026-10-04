@@ -215,11 +215,11 @@ export default function Register() {
 
   /* ── Main form ── */
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-x-hidden transition-colors duration-200">
       {/* Ambient glow */}
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[420px] bg-gradient-radial from-violet-600/20 via-indigo-600/10 to-transparent blur-3xl rounded-full" />
-        <div className="absolute top-1/2 -left-32 w-[300px] h-[300px] bg-fuchsia-500/8 blur-3xl rounded-full" />
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[420px] bg-gradient-radial from-violet-600/10 dark:from-violet-600/20 via-indigo-600/5 dark:via-indigo-600/10 to-transparent blur-3xl rounded-full" />
+        <div className="absolute top-1/2 -left-32 w-[300px] h-[300px] bg-fuchsia-500/5 dark:bg-fuchsia-500/8 blur-3xl rounded-full" />
       </div>
 
       <Navbar />
@@ -233,21 +233,21 @@ export default function Register() {
               <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 text-white shadow-lg shadow-violet-500/30 group-hover:scale-105 transition-transform duration-200">
                 <HouseIcon />
               </span>
-              <span className="text-white font-extrabold text-2xl tracking-tight">
-                House<span className="text-violet-400">Predict</span>
+              <span className="text-slate-900 dark:text-white font-extrabold text-2xl tracking-tight">
+                House<span className="text-violet-600 dark:text-violet-400">Predict</span>
               </span>
             </Link>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Create your account</h1>
-            <p className="mt-1.5 text-sm text-slate-400">Free forever. No credit card required.</p>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Create your account</h1>
+            <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-400">Free forever. No credit card required.</p>
           </div>
 
           {/* Card */}
-          <div className="rounded-2xl p-px bg-gradient-to-b from-violet-500/30 via-slate-700/20 to-slate-900/40 shadow-2xl shadow-violet-950/40">
-            <div className="bg-slate-900/95 rounded-2xl p-6 sm:p-8 border border-slate-800/60 backdrop-blur-sm">
+          <div className="rounded-2xl p-px bg-gradient-to-b from-violet-500/30 via-slate-300/30 dark:via-slate-700/20 to-slate-200/40 dark:to-slate-900/40 shadow-2xl shadow-violet-950/20 dark:shadow-violet-950/40">
+            <div className="bg-white/95 dark:bg-slate-900/95 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800/60 backdrop-blur-sm shadow-sm">
 
               {/* Global error */}
               {globalError && (
-                <div className="flex items-start gap-2.5 px-4 py-3.5 mb-5 rounded-xl bg-rose-500/10 border border-rose-500/25 text-rose-300 text-sm font-medium">
+                <div className="flex items-start gap-2.5 px-4 py-3.5 mb-5 rounded-xl bg-rose-500/10 border border-rose-500/25 text-rose-600 dark:text-rose-300 text-sm font-medium">
                   <AlertIcon />
                   <span>{globalError}</span>
                 </div>
@@ -256,7 +256,7 @@ export default function Register() {
               {/* Google OAuth placeholder */}
               <button
                 type="button"
-                className="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl bg-slate-950/80 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 text-sm font-medium text-slate-200 transition-all duration-200 shadow-sm active:scale-[0.99]"
+                className="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 text-sm font-medium text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm active:scale-[0.99]"
               >
                 <GoogleIcon />
                 Sign up with Google
@@ -264,11 +264,11 @@ export default function Register() {
 
               {/* Divider */}
               <div className="relative my-6 flex items-center gap-3">
-                <div className="flex-grow border-t border-slate-800" />
+                <div className="flex-grow border-t border-slate-200 dark:border-slate-800" />
                 <span className="text-[11px] uppercase tracking-widest text-slate-500 font-semibold whitespace-nowrap">
                   or register with email
                 </span>
-                <div className="flex-grow border-t border-slate-800" />
+                <div className="flex-grow border-t border-slate-200 dark:border-slate-800" />
               </div>
 
               {/* Form */}
@@ -276,7 +276,7 @@ export default function Register() {
 
                 {/* Full Name */}
                 <div>
-                  <label htmlFor="fullName" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                  <label htmlFor="fullName" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
                     Full Name
                   </label>
                   <input
@@ -287,15 +287,15 @@ export default function Register() {
                     value={form.fullName}
                     onChange={handleChange}
                     placeholder="Jane Doe"
-                    className={`w-full px-4 py-3 rounded-xl bg-slate-950/70 border text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 transition-all duration-200
-                      ${fieldErrors.fullName ? "border-rose-500/60 focus:ring-rose-500/30 focus:border-rose-500" : "border-slate-800 focus:ring-violet-500/40 focus:border-violet-500"}`}
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 transition-all duration-200
+                      ${fieldErrors.fullName ? "border-rose-500/60 focus:ring-rose-500/30 focus:border-rose-500" : "border-slate-300 dark:border-slate-800 focus:ring-violet-500/40 focus:border-violet-500"}`}
                   />
                   <FieldError msg={fieldErrors.fullName} />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                  <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
                     Email Address
                   </label>
                   <input
@@ -306,8 +306,8 @@ export default function Register() {
                     value={form.email}
                     onChange={handleChange}
                     placeholder="name@example.com"
-                    className={`w-full px-4 py-3 rounded-xl bg-slate-950/70 border text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 transition-all duration-200
-                      ${fieldErrors.email ? "border-rose-500/60 focus:ring-rose-500/30 focus:border-rose-500" : "border-slate-800 focus:ring-violet-500/40 focus:border-violet-500"}`}
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 transition-all duration-200
+                      ${fieldErrors.email ? "border-rose-500/60 focus:ring-rose-500/30 focus:border-rose-500" : "border-slate-300 dark:border-slate-800 focus:ring-violet-500/40 focus:border-violet-500"}`}
                   />
                   <FieldError msg={fieldErrors.email} />
                 </div>
@@ -315,7 +315,7 @@ export default function Register() {
                 {/* Password */}
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
-                    <label htmlFor="password" className="text-xs font-semibold uppercase tracking-wider text-slate-300">
+                    <label htmlFor="password" className="text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                       Password
                     </label>
                     {form.password && (
@@ -331,13 +331,13 @@ export default function Register() {
                       value={form.password}
                       onChange={handleChange}
                       placeholder="••••••••"
-                      className={`w-full pl-4 pr-11 py-3 rounded-xl bg-slate-950/70 border text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 transition-all duration-200
-                        ${fieldErrors.password ? "border-rose-500/60 focus:ring-rose-500/30 focus:border-rose-500" : "border-slate-800 focus:ring-violet-500/40 focus:border-violet-500"}`}
+                      className={`w-full pl-4 pr-11 py-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 transition-all duration-200
+                        ${fieldErrors.password ? "border-rose-500/60 focus:ring-rose-500/30 focus:border-rose-500" : "border-slate-300 dark:border-slate-800 focus:ring-violet-500/40 focus:border-violet-500"}`}
                     />
                     <button
                       type="button"
                       onClick={() => setShow((p) => ({ ...p, password: !p.password }))}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 p-1 focus:outline-none transition-colors"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 focus:outline-none transition-colors"
                       aria-label={show.password ? "Hide password" : "Show password"}
                     >
                       {show.password ? <EyeOffIcon /> : <EyeIcon />}
@@ -351,7 +351,7 @@ export default function Register() {
                         {[1, 2, 3, 4].map((s) => (
                           <div
                             key={s}
-                            className={`h-1 flex-1 rounded-full transition-all duration-300 ${strength.score >= s ? strength.bar : "bg-slate-800"}`}
+                            className={`h-1 flex-1 rounded-full transition-all duration-300 ${strength.score >= s ? strength.bar : "bg-slate-200 dark:bg-slate-800"}`}
                           />
                         ))}
                       </div>
@@ -370,11 +370,11 @@ export default function Register() {
                 {/* Confirm Password */}
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
-                    <label htmlFor="confirmPassword" className="text-xs font-semibold uppercase tracking-wider text-slate-300">
+                    <label htmlFor="confirmPassword" className="text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                       Confirm Password
                     </label>
                     {passwordsMatch && (
-                      <span className="flex items-center gap-1 text-xs font-semibold text-emerald-400">
+                      <span className="flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
                         <svg viewBox="0 0 12 12" className="w-3 h-3" fill="none">
                           <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
@@ -382,7 +382,7 @@ export default function Register() {
                       </span>
                     )}
                     {passwordsMismatch && (
-                      <span className="text-xs font-semibold text-rose-400">Does not match</span>
+                      <span className="text-xs font-semibold text-rose-500 dark:text-rose-400">Does not match</span>
                     )}
                   </div>
                   <div className="relative">
@@ -394,17 +394,17 @@ export default function Register() {
                       value={form.confirmPassword}
                       onChange={handleChange}
                       placeholder="••••••••"
-                      className={`w-full pl-4 pr-11 py-3 rounded-xl bg-slate-950/70 border text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 transition-all duration-200
+                      className={`w-full pl-4 pr-11 py-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 transition-all duration-200
                         ${fieldErrors.confirmPassword || passwordsMismatch
                           ? "border-rose-500/60 focus:ring-rose-500/30 focus:border-rose-500"
                           : passwordsMatch
                             ? "border-emerald-500/40 focus:ring-emerald-500/30 focus:border-emerald-500"
-                            : "border-slate-800 focus:ring-violet-500/40 focus:border-violet-500"}`}
+                            : "border-slate-300 dark:border-slate-800 focus:ring-violet-500/40 focus:border-violet-500"}`}
                     />
                     <button
                       type="button"
                       onClick={() => setShow((p) => ({ ...p, confirm: !p.confirm }))}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 p-1 focus:outline-none transition-colors"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 focus:outline-none transition-colors"
                       aria-label={show.confirm ? "Hide password" : "Show password"}
                     >
                       {show.confirm ? <EyeOffIcon /> : <EyeIcon />}
@@ -415,7 +415,7 @@ export default function Register() {
 
                 {/* Terms */}
                 <div className={`flex items-start gap-3 pt-1 p-3.5 rounded-xl border transition-colors duration-200
-                  ${fieldErrors.terms ? "bg-rose-500/5 border-rose-500/25" : "bg-slate-950/40 border-slate-800/60"}`}>
+                  ${fieldErrors.terms ? "bg-rose-50 dark:bg-rose-500/5 border-rose-300 dark:border-rose-500/25" : "bg-slate-50 dark:bg-slate-950/40 border-slate-200 dark:border-slate-800/60"}`}>
                   <div className="relative flex items-center mt-0.5 shrink-0">
                     <input
                       id="terms"
@@ -425,7 +425,7 @@ export default function Register() {
                         setAgreeTerms(e.target.checked);
                         if (fieldErrors.terms) setFieldErrors((p) => ({ ...p, terms: "" }));
                       }}
-                      className="w-4 h-4 rounded border-slate-700 bg-slate-950 text-violet-600 focus:ring-violet-500 focus:ring-offset-slate-900 cursor-pointer appearance-none checked:bg-violet-600 checked:border-violet-600 transition-all"
+                      className="w-4 h-4 rounded border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-violet-600 focus:ring-violet-500 cursor-pointer appearance-none checked:bg-violet-600 checked:border-violet-600 transition-all"
                     />
                     {agreeTerms && (
                       <svg className="absolute left-0.5 top-0.5 w-3 h-3 text-white pointer-events-none" viewBox="0 0 12 12" fill="none">
@@ -433,19 +433,19 @@ export default function Register() {
                       </svg>
                     )}
                   </div>
-                  <label htmlFor="terms" className="text-xs text-slate-400 leading-relaxed cursor-pointer select-none hover:text-slate-300 transition-colors">
+                  <label htmlFor="terms" className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed cursor-pointer select-none hover:text-slate-900 dark:hover:text-slate-300 transition-colors">
                     I agree to HousePredict's{" "}
-                    <a href="#terms" className="text-violet-400 hover:text-violet-300 font-medium underline underline-offset-2 decoration-violet-500/40">
+                    <a href="#terms" className="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 font-medium underline underline-offset-2 decoration-violet-500/40">
                       Terms of Service
                     </a>{" "}
                     and{" "}
-                    <a href="#privacy" className="text-violet-400 hover:text-violet-300 font-medium underline underline-offset-2 decoration-violet-500/40">
+                    <a href="#privacy" className="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 font-medium underline underline-offset-2 decoration-violet-500/40">
                       Privacy Policy
                     </a>. I understand that my prediction data will be processed to improve the model.
                   </label>
                 </div>
                 {fieldErrors.terms && (
-                  <p className="flex items-center gap-1 text-xs text-rose-400 font-medium -mt-2">
+                  <p className="flex items-center gap-1 text-xs text-rose-500 dark:text-rose-400 font-medium -mt-2">
                     <AlertIcon />{fieldErrors.terms}
                   </p>
                 )}
@@ -472,9 +472,9 @@ export default function Register() {
               </form>
 
               {/* Sign-in link */}
-              <div className="mt-6 pt-5 border-t border-slate-800/80 text-center text-sm text-slate-400">
+              <div className="mt-6 pt-5 border-t border-slate-200 dark:border-slate-800/80 text-center text-sm text-slate-600 dark:text-slate-400">
                 Already have an account?{" "}
-                <Link to="/login" className="font-semibold text-violet-400 hover:text-violet-300 transition-colors">
+                <Link to="/login" className="font-semibold text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 transition-colors">
                   Sign in →
                 </Link>
               </div>
@@ -483,7 +483,7 @@ export default function Register() {
           </div>
 
           {/* Trust note */}
-          <p className="mt-6 text-center text-xs text-slate-600">
+          <p className="mt-6 text-center text-xs text-slate-500 dark:text-slate-600">
             🔒 Your data is encrypted in transit and at rest.
           </p>
         </div>

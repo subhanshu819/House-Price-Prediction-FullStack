@@ -310,33 +310,33 @@ export default function Predict() {
   const errorCount = Object.values(errors).filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-hidden">
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[850px] h-[380px] bg-gradient-to-tr from-violet-600/15 via-indigo-500/10 to-transparent blur-[140px] pointer-events-none -z-10" />
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-hidden transition-colors duration-200">
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[850px] h-[380px] bg-gradient-to-tr from-violet-600/10 dark:from-violet-600/15 via-indigo-500/5 dark:via-indigo-500/10 to-transparent blur-[140px] pointer-events-none -z-10" />
 
       <Navbar />
 
       <main className="flex-grow pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
 
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             House Price Predictor
           </h1>
-          <p className="mt-2 text-sm sm:text-base text-slate-400">
+          <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
             Enter California residential census block attributes to get an instant ML-powered valuation.
           </p>
         </div>
 
-        <div className="relative rounded-3xl p-px bg-gradient-to-b from-violet-500/25 via-slate-800/40 to-slate-900/60 shadow-2xl backdrop-blur-xl">
-          <div className="bg-slate-900/95 rounded-[calc(1.5rem-1px)] p-5 sm:p-8 border border-slate-800/80">
+        <div className="relative rounded-3xl p-px bg-gradient-to-b from-violet-500/25 via-slate-300/40 dark:via-slate-800/40 to-slate-200/60 dark:to-slate-900/60 shadow-2xl backdrop-blur-xl">
+          <div className="bg-white/95 dark:bg-slate-900/95 rounded-[calc(1.5rem-1px)] p-5 sm:p-8 border border-slate-200 dark:border-slate-800/80 shadow-sm">
 
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-5 border-b border-slate-800">
-              <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
+            <div className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-5 border-b border-slate-200 dark:border-slate-800">
+              <span className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">
                 Feature Parameters
               </span>
               <button
                 type="button"
                 onClick={handleFillDemo}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-teal-300 bg-teal-500/10 border border-teal-500/30 hover:bg-teal-500/20 hover:text-teal-200 hover:border-teal-400/50 transition-all duration-200 active:scale-95"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-teal-700 dark:text-teal-300 bg-teal-500/10 border border-teal-500/30 hover:bg-teal-500/20 hover:text-teal-800 dark:hover:text-teal-200 hover:border-teal-400/50 transition-all duration-200 active:scale-95"
               >
                 <BeakerIcon />
                 Use Sample Data
@@ -344,15 +344,15 @@ export default function Predict() {
             </div>
 
             {apiError && (
-              <div className="mb-5 p-4 rounded-xl bg-rose-500/10 border border-rose-500/25 text-rose-300 text-sm font-medium flex items-start gap-2.5">
+              <div className="mb-5 p-4 rounded-xl bg-rose-500/10 border border-rose-500/25 text-rose-600 dark:text-rose-300 text-sm font-medium flex items-start gap-2.5">
                 <AlertIcon />
                 <span>{apiError}</span>
               </div>
             )}
 
             {errorCount > 1 && (
-              <div className="mb-5 p-3 rounded-xl bg-amber-950/30 border border-amber-500/25 text-amber-300 text-xs font-medium flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <div className="mb-5 p-3 rounded-xl bg-amber-500/10 dark:bg-amber-950/30 border border-amber-500/25 text-amber-700 dark:text-amber-300 text-xs font-medium flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 shrink-0 text-amber-500 dark:text-amber-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
                 </svg>
                 {errorCount} fields need your attention. Please review the highlighted inputs below.
@@ -378,18 +378,18 @@ export default function Predict() {
                         <div className="flex items-baseline justify-between">
                           <label
                             htmlFor={field.id}
-                            className="text-[11px] font-semibold uppercase tracking-wider text-slate-300"
+                            className="text-[11px] font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300"
                           >
                             {field.label}
                           </label>
                           {field.unit && (
-                            <span className="text-[10px] font-medium text-slate-500 ml-1 shrink-0">
+                            <span className="text-[10px] font-medium text-slate-400 dark:text-slate-500 ml-1 shrink-0">
                               {field.unit}
                             </span>
                           )}
                         </div>
                         {field.helper && (
-                          <p className="mt-0.5 text-[10px] text-slate-500 leading-snug">
+                          <p className="mt-0.5 text-[10px] text-slate-500 dark:text-slate-500 leading-snug">
                             {field.helper}
                           </p>
                         )}
@@ -411,17 +411,17 @@ export default function Predict() {
                           onBlur={handleBlur}
                           autoComplete="off"
                           className={[
-                            "w-full px-4 py-3 rounded-xl text-base sm:text-sm text-white placeholder-slate-500",
-                            "bg-slate-950/70 border transition-all duration-200",
+                            "w-full px-4 py-3 rounded-xl text-base sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500",
+                            "bg-slate-50 dark:bg-slate-950/70 border transition-all duration-200",
                             "focus:outline-none focus:ring-2",
                             hasError
-                              ? "border-rose-500/70 focus:ring-rose-500/40 bg-rose-950/20"
-                              : "border-slate-800 focus:ring-violet-500/50 focus:border-violet-500",
+                              ? "border-rose-500/70 focus:ring-rose-500/40 bg-rose-50/50 dark:bg-rose-950/20"
+                              : "border-slate-300 dark:border-slate-800 focus:ring-violet-500/50 focus:border-violet-500",
                           ].join(" ")}
                         />
                         {hasError && (
                           <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                            <svg className="w-4 h-4 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
+                            <svg className="w-4 h-4 text-rose-500 dark:text-rose-400" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
                             </svg>
                           </div>
@@ -430,11 +430,11 @@ export default function Predict() {
 
                       {/* ── Below-input: error OR range hint ── */}
                       {hasError ? (
-                        <p role="alert" className="mt-1.5 text-xs text-rose-400 leading-snug">
+                        <p role="alert" className="mt-1.5 text-xs text-rose-500 dark:text-rose-400 leading-snug">
                           {errors[field.key]}
                         </p>
                       ) : (
-                        <p className="mt-1 text-[10px] text-slate-600 leading-snug">
+                        <p className="mt-1 text-[10px] text-slate-500 dark:text-slate-600 leading-snug">
                           Range: {field.rangeLabel}
                         </p>
                       )}
@@ -469,7 +469,7 @@ export default function Predict() {
                   type="button"
                   onClick={handleReset}
                   disabled={loading}
-                  className="sm:w-auto flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white bg-slate-950/70 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none active:scale-95"
+                  className="sm:w-auto flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-950/70 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-700 transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none active:scale-95"
                 >
                   <RefreshIcon />
                   Reset
@@ -478,26 +478,26 @@ export default function Predict() {
             </form>
 
             {predictionResult && (
-              <div className="mt-8 pt-8 border-t border-slate-800/80">
-                <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-b from-violet-950/40 to-slate-900 border border-violet-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+              <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800/80">
+                <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-b from-violet-50 to-white dark:from-violet-950/40 dark:to-slate-900 border border-violet-300 dark:border-violet-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 shadow-sm">
                   <div>
-                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-violet-300 mb-1">
+                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-300 mb-1">
                       <CheckCircleIcon />
                       <span>Model Inference Completed ({predictionResult.latency})</span>
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-white">Estimated Property Valuation</h2>
-                    <p className="text-xs text-slate-400 mt-0.5">
+                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Estimated Property Valuation</h2>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                       US Dollar Valuation: {predictionResult.usdPrice} USD (1 USD = Rs.93)
                     </p>
                   </div>
                   <div className="text-left md:text-right">
-                    <span className="text-[11px] font-medium text-slate-400 uppercase tracking-wider block">
+                    <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                       Predicted Value
                     </span>
-                    <span className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
+                    <span className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-teal-300 bg-clip-text text-transparent">
                       {predictionResult.inrPrice}
                     </span>
-                    <span className="block text-xs font-semibold text-cyan-400 mt-1">
+                    <span className="block text-xs font-semibold text-cyan-600 dark:text-cyan-400 mt-1">
                       USD Value: {predictionResult.usdPrice}
                     </span>
                   </div>
@@ -508,7 +508,7 @@ export default function Predict() {
           </div>
         </div>
 
-        <p className="mt-5 text-center text-[11px] text-slate-600">
+        <p className="mt-5 text-center text-[11px] text-slate-500 dark:text-slate-600">
           Ranges are based on the California Housing Dataset. Values outside dataset bounds will be rejected.
         </p>
       </main>

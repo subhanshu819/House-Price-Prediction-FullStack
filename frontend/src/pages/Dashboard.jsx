@@ -124,23 +124,23 @@ export default function Dashboard() {
   const recentRows = predictions.slice(0, 5);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-hidden">
-      <div className="absolute top-12 left-1/3 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-tr from-violet-600/15 via-indigo-500/10 to-transparent blur-[130px] pointer-events-none -z-10" />
-      <div className="absolute top-[500px] right-[-10%] w-[500px] h-[400px] bg-indigo-500/10 blur-[140px] pointer-events-none -z-10" />
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col selection:bg-violet-500 selection:text-white relative overflow-hidden transition-colors duration-200">
+      <div className="absolute top-12 left-1/3 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-tr from-violet-600/10 dark:from-violet-600/15 via-indigo-500/5 dark:via-indigo-500/10 to-transparent blur-[130px] pointer-events-none -z-10" />
+      <div className="absolute top-[500px] right-[-10%] w-[500px] h-[400px] bg-indigo-500/5 dark:bg-indigo-500/10 blur-[140px] pointer-events-none -z-10" />
 
       <Navbar />
 
       <main className="flex-grow pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-8 border-b border-slate-800">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-8 border-b border-slate-200 dark:border-slate-800">
           <div>
-            <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Your{" "}
-              <span className="bg-gradient-to-r from-violet-400 to-indigo-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-300 bg-clip-text text-transparent">
                 Prediction Overview
               </span>
             </h1>
-            <p className="mt-1 text-sm sm:text-base text-slate-400">
+            <p className="mt-1 text-sm sm:text-base text-slate-600 dark:text-slate-400">
               Real-time summary of your property valuations.
             </p>
           </div>
@@ -155,7 +155,7 @@ export default function Dashboard() {
             </Link>
             <Link
               to="/history"
-              className="inline-flex items-center justify-center px-5 py-3 rounded-xl text-sm font-medium text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all duration-200"
+              className="inline-flex items-center justify-center px-5 py-3 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 shadow-sm"
             >
               View History
             </Link>
@@ -164,35 +164,35 @@ export default function Dashboard() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 my-8">
-          <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all backdrop-blur-sm">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all backdrop-blur-sm shadow-sm">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Predictions</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Total Predictions</span>
               <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
                 <ChartBarIcon />
               </div>
             </div>
             <div className="mt-4 flex items-baseline gap-2">
               {loading ? (
-                <span className="h-8 w-12 rounded bg-slate-800 animate-pulse block" />
+                <span className="h-8 w-12 rounded bg-slate-200 dark:bg-slate-800 animate-pulse block" />
               ) : (
-                <span className="text-3xl font-extrabold text-white">{totalPredictions}</span>
+                <span className="text-3xl font-extrabold text-slate-900 dark:text-white">{totalPredictions}</span>
               )}
             </div>
             <p className="mt-1 text-xs text-slate-500">Evaluations run on your account</p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all backdrop-blur-sm">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all backdrop-blur-sm shadow-sm">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Avg Predicted Price</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Avg Predicted Price</span>
               <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
                 <TrendingUpIcon />
               </div>
             </div>
             <div className="mt-4 flex items-baseline gap-2">
               {loading ? (
-                <span className="h-8 w-28 rounded bg-slate-800 animate-pulse block" />
+                <span className="h-8 w-28 rounded bg-slate-200 dark:bg-slate-800 animate-pulse block" />
               ) : (
-                <span className="text-3xl font-extrabold text-white">
+                <span className="text-3xl font-extrabold text-slate-900 dark:text-white">
                   {avgPrice != null ? formatUSD(avgPrice) : "—"}
                 </span>
               )}
@@ -200,20 +200,20 @@ export default function Dashboard() {
             <p className="mt-1 text-xs text-slate-500">Mean across all your predictions</p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all backdrop-blur-sm">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all backdrop-blur-sm shadow-sm">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Latest Prediction</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Latest Prediction</span>
               <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
                 <CalendarIcon />
               </div>
             </div>
             <div className="mt-4 flex items-baseline gap-2">
               {loading ? (
-                <span className="h-8 w-24 rounded bg-slate-800 animate-pulse block" />
+                <span className="h-8 w-24 rounded bg-slate-200 dark:bg-slate-800 animate-pulse block" />
               ) : latest ? (
-                <span className="text-2xl font-extrabold text-white">{formatUSD(latest.usdPrice)}</span>
+                <span className="text-2xl font-extrabold text-slate-900 dark:text-white">{formatUSD(latest.usdPrice)}</span>
               ) : (
-                <span className="text-xl font-semibold text-slate-500">No predictions yet</span>
+                <span className="text-xl font-semibold text-slate-400 dark:text-slate-500">No predictions yet</span>
               )}
             </div>
             <p className="mt-1 text-xs text-slate-500">
@@ -221,16 +221,16 @@ export default function Dashboard() {
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all backdrop-blur-sm">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all backdrop-blur-sm shadow-sm">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Model Used</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Model Used</span>
               <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
                 <CpuChipIcon />
               </div>
             </div>
             <div className="mt-4">
-              <span className="text-lg font-extrabold text-white leading-tight">Random Forest</span>
-              <span className="block text-xs text-cyan-400 font-medium mt-0.5">Regressor</span>
+              <span className="text-lg font-extrabold text-slate-900 dark:text-white leading-tight">Random Forest</span>
+              <span className="block text-xs text-cyan-600 dark:text-cyan-400 font-medium mt-0.5">Regressor</span>
             </div>
             <p className="mt-1 text-xs text-slate-500">California Housing Dataset</p>
           </div>
@@ -240,38 +240,38 @@ export default function Dashboard() {
         <div className="mt-10">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="text-xl font-bold text-white tracking-tight">Recent Predictions</h2>
-              <p className="text-xs sm:text-sm text-slate-400">Your most recent machine learning valuations</p>
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Recent Predictions</h2>
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Your most recent machine learning valuations</p>
             </div>
             <Link
               to="/history"
-              className="text-xs sm:text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors inline-flex items-center gap-1 group"
+              className="text-xs sm:text-sm font-medium text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 transition-colors inline-flex items-center gap-1 group"
             >
               See all <ArrowRightIcon />
             </Link>
           </div>
 
           {loading && (
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-12 text-center">
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-12 text-center shadow-sm">
               <div className="w-8 h-8 border-2 border-violet-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-              <p className="text-sm text-slate-400">Loading your predictions...</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Loading your predictions...</p>
             </div>
           )}
 
           {!loading && error && (
-            <div className="rounded-2xl border border-rose-900/40 bg-rose-950/20 p-10 text-center text-rose-300">
+            <div className="rounded-2xl border border-rose-300 dark:border-rose-900/40 bg-rose-50 dark:bg-rose-950/20 p-10 text-center text-rose-700 dark:text-rose-300">
               <p className="text-sm font-semibold mb-1">Failed to load prediction history</p>
-              <p className="text-xs text-rose-400/80">{error}</p>
+              <p className="text-xs text-rose-500 dark:text-rose-400/80">{error}</p>
             </div>
           )}
 
           {!loading && !error && recentRows.length === 0 && (
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-16 text-center">
-              <div className="w-12 h-12 rounded-2xl bg-violet-500/10 border border-violet-500/20 text-violet-400 flex items-center justify-center mx-auto mb-4">
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 p-16 text-center shadow-sm">
+              <div className="w-12 h-12 rounded-2xl bg-violet-500/10 border border-violet-500/20 text-violet-600 dark:text-violet-400 flex items-center justify-center mx-auto mb-4">
                 <SparkleIcon className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white">No Predictions Yet</h3>
-              <p className="mt-1 text-sm text-slate-400 max-w-sm mx-auto">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">No Predictions Yet</h3>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
                 Run your first house price prediction to see your history here.
               </p>
               <div className="mt-6">
@@ -288,9 +288,9 @@ export default function Dashboard() {
           {!loading && !error && recentRows.length > 0 && (
             <>
               {/* Desktop Table */}
-              <div className="hidden md:block rounded-2xl border border-slate-800 bg-slate-900/80 overflow-hidden backdrop-blur-sm shadow-xl">
-                <table className="w-full text-left text-sm text-slate-300">
-                  <thead className="bg-slate-950/60 border-b border-slate-800 text-xs uppercase font-semibold text-slate-400 tracking-wider">
+              <div className="hidden md:block rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 overflow-hidden backdrop-blur-sm shadow-sm dark:shadow-xl">
+                <table className="w-full text-left text-sm text-slate-700 dark:text-slate-300">
+                  <thead className="bg-slate-50 dark:bg-slate-950/60 border-b border-slate-200 dark:border-slate-800 text-xs uppercase font-semibold text-slate-500 dark:text-slate-400 tracking-wider">
                     <tr>
                       <th className="px-6 py-4">Coordinates</th>
                       <th className="px-6 py-4">Key Features</th>
@@ -299,31 +299,31 @@ export default function Dashboard() {
                       <th className="px-6 py-4 text-right">Action</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800/80">
+                  <tbody className="divide-y divide-slate-200 dark:divide-slate-800/80">
                     {recentRows.map((row) => {
                       const lat = row.Latitude != null ? Number(row.Latitude).toFixed(2) : "—";
                       const lng = row.Longitude != null ? Number(row.Longitude).toFixed(2) : "—";
                       const rooms = row.AveRooms != null ? Math.round(Number(row.AveRooms)) : "—";
                       const pop = row.Population != null ? Math.round(Number(row.Population)).toLocaleString() : "—";
                       return (
-                        <tr key={row._id} className="hover:bg-slate-800/40 transition-colors">
+                        <tr key={row._id} className="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
                           <td className="px-6 py-4">
-                            <div className="font-semibold text-white font-mono text-xs">
+                            <div className="font-semibold text-slate-900 dark:text-white font-mono text-xs">
                               {lat}&deg;, {lng}&deg;
                             </div>
                             <div className="text-xs text-slate-500 mt-0.5">California</div>
                           </td>
-                          <td className="px-6 py-4 text-xs text-slate-400">
+                          <td className="px-6 py-4 text-xs text-slate-600 dark:text-slate-400">
                             {rooms} rooms &bull; Pop: {pop} &bull; Inc: {row.MedInc != null ? Number(row.MedInc).toFixed(1) : "—"}
                           </td>
                           <td className="px-6 py-4 text-xs text-slate-500">{formatDate(row.createdAt)}</td>
                           <td className="px-6 py-4">
-                            <span className="font-bold text-emerald-400 text-base">{formatUSD(row.usdPrice)}</span>
+                            <span className="font-bold text-emerald-600 dark:text-emerald-400 text-base">{formatUSD(row.usdPrice)}</span>
                           </td>
                           <td className="px-6 py-4 text-right">
                             <Link
                               to="/predict"
-                              className="text-xs font-semibold text-violet-400 hover:text-violet-300 transition-colors"
+                              className="text-xs font-semibold text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 transition-colors"
                             >
                               Re-evaluate &rarr;
                             </Link>
@@ -343,27 +343,27 @@ export default function Dashboard() {
                   const rooms = item.AveRooms != null ? Math.round(Number(item.AveRooms)) : "—";
                   const pop = item.Population != null ? Math.round(Number(item.Population)).toLocaleString() : "—";
                   return (
-                    <div key={item._id} className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
+                    <div key={item._id} className="p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
                       <div className="flex items-start justify-between">
                         <div>
-                          <span className="font-mono text-xs font-semibold text-violet-400 block">
+                          <span className="font-mono text-xs font-semibold text-violet-600 dark:text-violet-400 block">
                             {lat}&deg;, {lng}&deg;
                           </span>
-                          <p className="text-xs text-slate-400 mt-0.5">California</p>
+                          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">California</p>
                         </div>
                         <span className="text-xs text-slate-500">{formatDate(item.createdAt)}</span>
                       </div>
-                      <p className="text-xs text-slate-400">
+                      <p className="text-xs text-slate-600 dark:text-slate-400">
                         {rooms} rooms &bull; Pop: {pop} &bull; Inc: {item.MedInc != null ? Number(item.MedInc).toFixed(1) : "—"}
                       </p>
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-800/80">
+                      <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-800/80">
                         <div>
                           <span className="text-[10px] uppercase text-slate-500 tracking-wider block">Predicted Value</span>
-                          <span className="text-lg font-extrabold text-emerald-400">{formatUSD(item.usdPrice)}</span>
+                          <span className="text-lg font-extrabold text-emerald-600 dark:text-emerald-400">{formatUSD(item.usdPrice)}</span>
                         </div>
                         <Link
                           to="/predict"
-                          className="text-xs font-semibold text-violet-400 hover:text-violet-300 transition-colors"
+                          className="text-xs font-semibold text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 transition-colors"
                         >
                           Re-evaluate &rarr;
                         </Link>

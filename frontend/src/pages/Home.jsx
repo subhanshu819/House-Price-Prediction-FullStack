@@ -91,12 +91,12 @@ export default function Home() {
   const isLoggedIn = Boolean(auth?.isAuthenticated || isJwtValid(token));
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col overflow-x-hidden transition-colors duration-200">
       {/* Ambient top glow */}
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-64 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-gradient-radial from-violet-600/20 via-indigo-600/10 to-transparent blur-3xl rounded-full" />
-        <div className="absolute top-1/2 -right-48 w-[500px] h-[500px] bg-indigo-500/8 blur-3xl rounded-full" />
-        <div className="absolute bottom-0 -left-32 w-[400px] h-[400px] bg-violet-500/8 blur-3xl rounded-full" />
+        <div className="absolute -top-64 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-gradient-radial from-violet-600/10 dark:from-violet-600/20 via-indigo-600/5 dark:via-indigo-600/10 to-transparent blur-3xl rounded-full" />
+        <div className="absolute top-1/2 -right-48 w-[500px] h-[500px] bg-indigo-500/5 dark:bg-indigo-500/8 blur-3xl rounded-full" />
+        <div className="absolute bottom-0 -left-32 w-[400px] h-[400px] bg-violet-500/5 dark:bg-violet-500/8 blur-3xl rounded-full" />
       </div>
 
       <Navbar />
@@ -106,19 +106,19 @@ export default function Home() {
         <section className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto text-center">
             {/* Main headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] max-w-5xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] max-w-5xl mx-auto">
               Know Your Home's{" "}
-              <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-600 via-fuchsia-600 to-cyan-600 dark:from-violet-400 dark:via-fuchsia-400 dark:to-cyan-400 bg-clip-text text-transparent">
                 True Value
               </span>
               <br />
-              <span className="text-slate-300 font-light text-3xl sm:text-4xl lg:text-5xl mt-2 block">
+              <span className="text-slate-600 dark:text-slate-300 font-light text-3xl sm:text-4xl lg:text-5xl mt-2 block">
                 in under 3 seconds
               </span>
             </h1>
 
             {/* Sub-headline */}
-            <p className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed font-light">
               HousePredict delivers instant, accurate property valuations — no agents, no waiting, no guesswork.
             </p>
 
@@ -126,7 +126,7 @@ export default function Home() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/predict"
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl text-base font-semibold text-white bg-gradient-to-r from-violet-600 via-indigo-600 to-violet-600 bg-size-200 hover:bg-pos-100 shadow-xl shadow-violet-600/30 hover:shadow-violet-600/50 hover:scale-[1.02] active:scale-95 transition-all duration-300"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl text-base font-semibold text-white bg-gradient-to-r from-violet-600 via-indigo-600 to-violet-600 shadow-xl shadow-violet-600/30 hover:shadow-violet-600/50 hover:scale-[1.02] active:scale-95 transition-all duration-300"
               >
                 <SparkleIcon className="w-5 h-5 text-violet-200" />
                 Predict My House Price
@@ -134,7 +134,7 @@ export default function Home() {
               </Link>
               <a
                 href="#how-it-works"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-2xl text-base font-medium text-slate-300 hover:text-white bg-slate-900/60 hover:bg-slate-800/80 border border-slate-700 hover:border-slate-600 transition-all duration-200 backdrop-blur-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-2xl text-base font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-white dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-200 shadow-sm backdrop-blur-sm"
               >
                 See How It Works
               </a>
@@ -158,10 +158,10 @@ export default function Home() {
 
             {/* Preview Card */}
             <div className="mt-16 sm:mt-20 max-w-3xl mx-auto">
-              <div className="rounded-3xl p-px bg-gradient-to-b from-violet-500/40 via-slate-700/20 to-slate-900/50 shadow-2xl shadow-violet-950/50">
-                <div className="bg-slate-900/95 rounded-3xl p-6 sm:p-8 backdrop-blur-sm border border-slate-800/50">
+              <div className="rounded-3xl p-px bg-gradient-to-b from-violet-500/40 via-slate-300/40 dark:via-slate-700/20 to-slate-200/50 dark:to-slate-900/50 shadow-2xl shadow-violet-950/20 dark:shadow-violet-950/50">
+                <div className="bg-white/95 dark:bg-slate-900/95 rounded-3xl p-6 sm:p-8 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/50 text-slate-900 dark:text-white">
                   {/* Faux terminal top bar */}
-                  <div className="flex items-center gap-2 mb-6 pb-4 border-b border-slate-800">
+                  <div className="flex items-center gap-2 mb-6 pb-4 border-b border-slate-200 dark:border-slate-800">
                     <span className="w-3 h-3 rounded-full bg-rose-500/80" />
                     <span className="w-3 h-3 rounded-full bg-amber-500/80" />
                     <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
@@ -170,29 +170,29 @@ export default function Home() {
                   {/* Result showcase */}
                   <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                     <div className="text-left space-y-1">
-                      <p className="text-xs uppercase tracking-widest font-semibold text-violet-400">Sample Output</p>
-                      <h3 className="text-lg sm:text-xl font-bold text-white">4 bed · 3 bath · 2,850 sq ft</h3>
-                      <p className="text-sm text-slate-400">Suburban Area, San Francisco Bay</p>
+                      <p className="text-xs uppercase tracking-widest font-semibold text-violet-600 dark:text-violet-400">Sample Output</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">4 bed · 3 bath · 2,850 sq ft</h3>
+                      <p className="text-sm text-slate-500 dark:text-slate-400">Suburban Area, San Francisco Bay</p>
                     </div>
                     <div className="text-left md:text-right">
                       <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">Estimated Value</p>
-                      <p className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent leading-none">
+                      <p className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-emerald-500 to-teal-500 dark:from-emerald-400 dark:to-teal-300 bg-clip-text text-transparent leading-none">
                         $748,500
                       </p>
-                      <p className="text-xs text-cyan-400 font-semibold mt-1">Confidence: 98.4%</p>
+                      <p className="text-xs text-cyan-600 dark:text-cyan-400 font-semibold mt-1">Confidence: 98.4%</p>
                     </div>
                   </div>
                   {/* Stats bar */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-slate-800">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-slate-200 dark:border-slate-800">
                     {[
                       { label: "Range", value: "$725k – $768k" },
                       { label: "YoY Growth", value: "+6.2%" },
                       { label: "Latency", value: "<120ms" },
                       { label: "Confidence", value: "98.4%" },
                     ].map((m) => (
-                      <div key={m.label} className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/60 text-left">
+                      <div key={m.label} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/60 text-left">
                         <p className="text-[10px] text-slate-500 uppercase tracking-wider">{m.label}</p>
-                        <p className="text-sm font-bold text-white mt-0.5">{m.value}</p>
+                        <p className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">{m.value}</p>
                       </div>
                     ))}
                   </div>
@@ -203,14 +203,14 @@ export default function Home() {
         </section>
 
         {/* ═══════════════════════ HOW IT WORKS ═══════════════════════ */}
-        <section id="how-it-works" className="py-20 sm:py-28 bg-slate-900/40 border-y border-slate-800/60">
+        <section id="how-it-works" className="py-20 sm:py-28 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800/60">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-14">
-              <p className="text-xs uppercase tracking-widest font-semibold text-violet-400 mb-2">Simple 3-Step Process</p>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              <p className="text-xs uppercase tracking-widest font-semibold text-violet-600 dark:text-violet-400 mb-2">Simple 3-Step Process</p>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                 From Details to Valuation in Seconds
               </h2>
-              <p className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
+              <p className="mt-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
                 Our pipeline bridges raw property specs with production-grade valuation regression — instantly.
               </p>
             </div>
@@ -219,17 +219,17 @@ export default function Home() {
               {STEPS.map((s, i) => (
                 <div
                   key={i}
-                  className={`relative p-7 rounded-2xl bg-gradient-to-br ${s.color} border backdrop-blur-sm hover:scale-[1.02] transition-transform duration-300`}
+                  className={`relative p-7 rounded-2xl bg-white dark:bg-gradient-to-br ${s.color} border border-slate-200 dark:border-transparent backdrop-blur-sm hover:scale-[1.02] shadow-sm dark:shadow-none transition-transform duration-300`}
                 >
                   {/* Connector line (desktop) */}
                   {i < STEPS.length - 1 && (
-                    <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 text-slate-700 text-lg z-10">
+                    <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-700 text-lg z-10">
                       →
                     </div>
                   )}
                   <span className={`text-3xl font-black ${s.text} mb-4 block`}>{s.step}</span>
-                  <h3 className="text-lg font-bold text-white mb-2">{s.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{s.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -240,11 +240,11 @@ export default function Home() {
         <section className="py-20 sm:py-28">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-14">
-              <p className="text-xs uppercase tracking-widest font-semibold text-violet-400 mb-2">Why HousePredict</p>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              <p className="text-xs uppercase tracking-widest font-semibold text-violet-600 dark:text-violet-400 mb-2">Why HousePredict</p>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                 Built for Real Estate Professionals
               </h2>
-              <p className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
+              <p className="mt-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
                 Everything buyers, sellers, and investors need to make data-driven decisions with confidence.
               </p>
             </div>
@@ -253,13 +253,13 @@ export default function Home() {
               {FEATURES.map((f) => (
                 <div
                   key={f.title}
-                  className="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition-all duration-200 group"
+                  className="p-6 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 shadow-sm dark:shadow-none transition-all duration-200 group"
                 >
-                  <div className="text-2xl mb-4 w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800 group-hover:scale-110 transition-transform duration-200">
+                  <div className="text-2xl mb-4 w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 group-hover:scale-110 transition-transform duration-200">
                     {f.icon}
                   </div>
-                  <h4 className="text-base font-bold text-white mb-1.5">{f.title}</h4>
-                  <p className="text-sm text-slate-400 leading-relaxed">{f.desc}</p>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white mb-1.5">{f.title}</h4>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{f.desc}</p>
                 </div>
               ))}
             </div>
@@ -267,7 +267,7 @@ export default function Home() {
         </section>
 
         {/* ═══════════════════════ SOCIAL PROOF STRIP ═══════════════════════ */}
-        <section className="py-12 bg-slate-900/40 border-y border-slate-800/60">
+        <section className="py-12 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800/60">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
@@ -277,10 +277,10 @@ export default function Home() {
                 { value: "100%", label: "Free to Try" },
               ].map((stat) => (
                 <div key={stat.label} className="space-y-1">
-                  <p className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
+                  <p className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-400 bg-clip-text text-transparent">
                     {stat.value}
                   </p>
-                  <p className="text-xs sm:text-sm text-slate-400 font-medium">{stat.label}</p>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -290,19 +290,19 @@ export default function Home() {
         {/* ═══════════════════════ FINAL CTA ═══════════════════════ */}
         <section className="py-20 sm:py-28">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="relative rounded-3xl p-8 sm:p-14 bg-gradient-to-br from-violet-900/40 via-slate-900 to-slate-950 border border-violet-500/25 shadow-2xl overflow-hidden">
-              <div className="absolute -top-20 -right-20 w-80 h-80 bg-violet-600/15 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative rounded-3xl p-8 sm:p-14 bg-gradient-to-br from-violet-100 dark:from-violet-900/40 via-white dark:via-slate-900 to-slate-100 dark:to-slate-950 border border-violet-200 dark:border-violet-500/25 shadow-2xl overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-80 h-80 bg-violet-600/10 dark:bg-violet-600/15 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-indigo-600/5 dark:bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
 
               <div className="relative z-10">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
                   Ready to Find Out What
                   <br className="hidden sm:block" />
-                  <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-violet-600 to-cyan-600 dark:from-violet-400 dark:to-cyan-400 bg-clip-text text-transparent">
                     {" "}Your Home Is Worth?
                   </span>
                 </h2>
-                <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-xl mx-auto">
+                <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto">
                   {isLoggedIn
                     ? "Run your next valuation today — completely free."
                     : "Run your first valuation today — completely free, no sign-up required."}
@@ -320,7 +320,7 @@ export default function Home() {
                   {!isLoggedIn && (
                     <Link
                       to="/register"
-                      className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-2xl text-base font-medium text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 transition-all duration-200"
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-2xl text-base font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm transition-all duration-200"
                     >
                       Create a Free Account
                     </Link>
